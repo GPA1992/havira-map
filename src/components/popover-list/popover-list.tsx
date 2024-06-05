@@ -7,13 +7,9 @@ import {
 import { Button } from '@/components/ui/button'
 import { usersColumns } from '@/components/users-table/users-columns'
 import { UsersTable } from '@/components/users-table/users-table'
-import { RootState } from '@/lib/store'
-import { useSelector } from 'react-redux'
 import { PersonIcon } from '@radix-ui/react-icons'
 
 export default function PopoverList() {
-  const { userData } = useSelector((state: RootState) => state.users)
-  if (!userData) return null
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -26,7 +22,7 @@ export default function PopoverList() {
         <span className="text-md scroll-m-20 font-light">
           Lista de Usuarios
         </span>
-        <UsersTable data={userData} columns={usersColumns} />
+        <UsersTable columns={usersColumns} />
       </PopoverContent>
     </Popover>
   )

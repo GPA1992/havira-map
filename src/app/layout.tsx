@@ -4,6 +4,7 @@ import './globals.css'
 import StoreProvider from '@/providers/storeProvider'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { ReactQueryProvider } from '@/providers/queryProvider'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           >
             <ReactQueryProvider>
               <div className="h-svh w-full">{children}</div>
+              <Toaster />
             </ReactQueryProvider>
           </ThemeProvider>
         </StoreProvider>

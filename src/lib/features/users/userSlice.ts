@@ -1,14 +1,12 @@
-import { IUser } from '@/types/user'
+import { IUser, IUserPartial } from '@/types/user'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface userState {
-  userData: IUser[] | null
-  userRefetch: (() => void) | null
+  userData: IUserPartial[] | null
 }
 
 const initialState: userState = {
   userData: null,
-  userRefetch: null,
 }
 
 const userSlice = createSlice({
@@ -16,13 +14,31 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUserData: (state, action: PayloadAction<IUser[] | null>) => {
-      state.userData = action.payload
+      if (action.payload) {
+        const userMapped = action.payload.map((user: IUser) => {
+          return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            city: user.address.city,
+            lat: parseFloat(user.address.geo.lat),
+            lng: parseFloat(user.address.geo.lng),
+          }
+        })
+        state.userData = userMapped
+      } else {
+        state.userData = null
+      }
     },
-    setUserRefetch: (state, action: PayloadAction<(() => void) | null>) => {
-      state.userRefetch = action.payload
+    addUserData: (state, action: PayloadAction<IUserPartial>) => {
+      if (state.userData) {
+        state.userData.unshift(action.payload)
+      } else {
+        state.userData = [action.payload]
+      }
     },
   },
 })
 
-export const { setUserData, setUserRefetch } = userSlice.actions
+export const { setUserData, addUserData } = userSlice.actions
 export default userSlice.reducer

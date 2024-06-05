@@ -27,3 +27,12 @@ export interface IUser {
   website: string
   company: Company
 }
+
+export interface IUserPartial {
+  id?: number
+  name: string
+  email: string
+  city: string
+  lat: number
+  lng: number
+}

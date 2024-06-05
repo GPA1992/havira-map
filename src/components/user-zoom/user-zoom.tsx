@@ -18,7 +18,7 @@ export default function UserZoom({ lat, lng }: UserZoomProps) {
   const handleZoomClick = () => {
     dispatch(setLat(lat))
     dispatch(setLng(lng))
-    dispatch(setZoom(8))
+    dispatch(setZoom(14))
   }
   return (
     <div>

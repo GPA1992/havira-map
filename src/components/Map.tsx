@@ -43,15 +43,8 @@ export default function CustomMap() {
       />
 
       {userData?.map((user) => (
-        <Marker
-          key={user.id}
-          position={[
-            parseFloat(user.address.geo.lat),
-            parseFloat(user.address.geo.lng),
-          ]}
-        >
+        <Marker key={user.id} position={[user.lat, user.lng]}>
           <Popup>
-            {/* {user.name} <br /> {user.email} */}
             <div>
               <span className="font-bold">Nome: </span>
               <span className="">{user.name}</span>
@@ -60,13 +53,10 @@ export default function CustomMap() {
               <span className="font-bold">Email: </span>
               <span className="">{user.email}</span>
             </div>
-            <span className="font-bold">Endereço: </span>
+
             <div>
-              <span className="">{user.address.city}</span>
-              <span>, </span>
-              <span className="">{user.address.street}</span>
-              <span>, </span>
-              <span className="">{user.address.suite}</span>
+              <span className="font-bold">Endereço: </span>
+              <span className="">{user.city}</span>
             </div>
           </Popup>
         </Marker>

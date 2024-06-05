@@ -1,9 +1,10 @@
 'use client'
-import { IUser } from '@/types/user'
+
 import { ColumnDef } from '@tanstack/react-table'
 import UserZoom from '../user-zoom/user-zoom'
+import { IUserPartial } from '@/types/user'
 
-export const usersColumns: ColumnDef<IUser>[] = [
+export const usersColumns: ColumnDef<IUserPartial>[] = [
   {
     accessorKey: 'name',
     header: 'Nome',
@@ -13,16 +14,16 @@ export const usersColumns: ColumnDef<IUser>[] = [
     header: 'Email',
   },
   {
-    accessorKey: 'address.city',
+    accessorKey: 'city',
     header: 'Cidade',
   },
   {
-    accessorKey: 'address.zaipcode',
+    accessorKey: 'id',
     header: 'Zoom',
     cell: (data) => {
-      const { lat, lng } = data.cell.row.original.address.geo
-
-      return <UserZoom lat={parseFloat(lat)} lng={parseFloat(lng)} />
+      const lat = data.cell.row.original.lat
+      const lng = data.cell.row.original.lng
+      return <UserZoom lat={lat} lng={lng} />
     },
   },
 ]
