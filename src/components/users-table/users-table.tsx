@@ -2,7 +2,6 @@
 import {
   ColumnDef,
   flexRender,
-  SortingState,
   getCoreRowModel,
   getSortedRowModel,
   useReactTable,
@@ -10,6 +9,7 @@ import {
   ColumnFiltersState,
   getFilteredRowModel,
 } from '@tanstack/react-table'
+import { Input } from '@/components/ui/input'
 
 import {
   Table,
@@ -21,6 +21,8 @@ import {
 } from '@/components/ui/table'
 
 import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { PlusIcon } from '@radix-ui/react-icons'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -31,7 +33,6 @@ export function UsersTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const table = useReactTable({
     data,
@@ -40,20 +41,28 @@ export function UsersTable<TData, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
-    onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
     state: {
       columnFilters,
-      sorting,
     },
   })
 
   return (
-    <div className="w-full px-2">
-      {/*  <div className="mb-3 flex w-full items-center justify-between gap-3">
-         <BsFilterTable table={table} />
-      </div> */}
+    <div className="w-full">
+      <div className="flex items-center gap-3 py-4">
+        <Input
+          placeholder="Filtre pelo nome"
+          value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
+          onChange={(event) =>
+            table.getColumn('name')?.setFilterValue(event.target.value)
+          }
+          className="max-w-sm"
+        />
 
+        <Button variant="outline" size="icon">
+          <PlusIcon className="h-4 w-4" />
+        </Button>
+      </div>
       <div className="w-full rounded-md border">
         <Table>
           <TableHeader>

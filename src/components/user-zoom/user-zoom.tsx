@@ -1,5 +1,9 @@
 'use client'
-import { setLat, setLng } from '@/lib/features/squareZoom/squareZoomSlice'
+import {
+  setLat,
+  setLng,
+  setZoom,
+} from '@/lib/features/squareZoom/squareZoomSlice'
 import { useDispatch } from 'react-redux'
 import { SewingPinFilledIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
@@ -14,6 +18,7 @@ export default function UserZoom({ lat, lng }: UserZoomProps) {
   const handleZoomClick = () => {
     dispatch(setLat(lat))
     dispatch(setLng(lng))
+    dispatch(setZoom(8))
   }
   return (
     <div>

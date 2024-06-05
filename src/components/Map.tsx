@@ -51,11 +51,27 @@ export default function CustomMap() {
           ]}
         >
           <Popup>
-            {user.name} <br /> {user.email}
+            {/* {user.name} <br /> {user.email} */}
+            <div>
+              <span className="font-bold">Nome: </span>
+              <span className="">{user.name}</span>
+            </div>
+            <div>
+              <span className="font-bold">Email: </span>
+              <span className="">{user.email}</span>
+            </div>
+            <span className="font-bold">Endereço: </span>
+            <div>
+              <span className="">{user.address.city}</span>
+              <span>, </span>
+              <span className="">{user.address.street}</span>
+              <span>, </span>
+              <span className="">{user.address.suite}</span>
+            </div>
           </Popup>
         </Marker>
       ))}
-      <ZoomControl position="bottomright" />
+      <ZoomControl />
     </MapContainer>
   )
 }

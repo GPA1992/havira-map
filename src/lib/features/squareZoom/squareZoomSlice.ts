@@ -22,11 +22,11 @@ const squareZoomSlice = createSlice({
     setLng: (state, action: PayloadAction<number>) => {
       state.lng = action.payload
     },
-    setUserZoom: (state, action: PayloadAction<number>) => {
+    setZoom: (state, action: PayloadAction<number>) => {
       state.zoom = action.payload
     },
   },
 })
 
-export const { setLat, setLng, setUserZoom } = squareZoomSlice.actions
+export const { setLat, setLng, setZoom } = squareZoomSlice.actions
 export default squareZoomSlice.reducer
