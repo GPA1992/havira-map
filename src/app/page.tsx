@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <div className="relative h-full w-full">
-      <div className="absolute left-2 top-5 z-10 flex h-fit w-fit flex-row items-end justify-between gap-3 rounded-md bg-background bg-opacity-25 p-3">
+      <div className="absolute left-8 top-8 z-10 flex h-fit w-fit flex-row items-end justify-between gap-3 rounded-md bg-background bg-opacity-25 p-3">
         <div className="flex flex-row items-center gap-3">
           <Image
             className="rounded-full"
@@ -52,7 +52,7 @@ export default function Home() {
           <ModeToggle />
         </div>
       </div>
-      <div className="absolute left-2 top-32 z-10 flex h-fit flex-col items-start gap-2">
+      <div className="absolute left-8 top-36 z-10 flex h-fit flex-col items-start gap-2">
         <PopoverList />
         <InputCombobox />
       </div>
