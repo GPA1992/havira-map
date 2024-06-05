@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hávira Frontend Teste
 
-## Getting Started
+## Descrição
 
-First, run the development server:
+O **Hávira Web Map** é uma aplicação web interativa que coleta informações de usuários a partir de uma API e exibe esses dados de maneira visual e intuitiva. Com essa aplicação, é possível listar os usuários em uma tabela detalhada e visualizar suas localizações geográficas em um mapa interativo utilizando a biblioteca Leaflet.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### <a href="https://havira-map-zeip.vercel.app/">Frontend Live:  https://havira-map-zeip.vercel.app/</a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Next.js 14**: Framework de React para desenvolvimento de aplicações web modernas e performáticas.
+- **Tailwind CSS**: Framework de CSS utilitário para estilização rápida e customizável.
+- **ShadCN**: Ferramenta para construção de componentes de UI.
+- **React Query (TanStack)**: Biblioteca para gerenciamento de estado e cache de dados assíncronos.
+- **Docker**: Plataforma para criação e gerenciamento de contêineres, garantindo um ambiente de desenvolvimento e produção consistente.
+- **Redux**: Biblioteca para gerenciamento de estado global da aplicação.
 
-## Learn More
+## Funcionalidades
 
-To learn more about Next.js, take a look at the following resources:
+- **Coleta de Dados**: A aplicação se conecta a uma API externa para coletar dados dos usuários.
+- **Gerenciar Usuários**: É possivel adicionar e excluir usuarios.
+- **Listagem de Usuários**: Exibição dos usuários em uma tabela organizada e detalhada.
+- **Mapa Interativo**: Visualização das localizações dos usuários em um mapa interativo, utilizando a biblioteca Leaflet para uma experiência de usuário rica e intuitiva.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Instalação e Execução
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Para executar esta aplicação localmente, siga os passos abaixo:
 
-## Deploy on Vercel
+1. Clone este repositório:
+    ```bash
+    git clone <URL do repositório>
+    ```
+2. Navegue até o diretório do projeto:
+    ```bash
+    cd <diretório do projeto>
+    ```
+3. Instale as dependências:
+    ```bash
+    npm install
+    ```
+    ou
+     ```bash
+    yarn
+    ```
+4. Inicie a aplicação:
+    ```bash
+    npm run dev
+    ```
+    ou
+    ```bash
+    yarn run dev
+    ```
+   ### acesse: 
+   Para conferir a execução
+   > <a href="http://localhost:3000">http://localhost:3000</a>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   
+5. Para executar a aplicação em um contêiner Docker:
+    ```bash
+    docker-compose up --build -d
+    ```
+   ### acesse: 
+   Para conferir a execução
+   > <a href="http://localhost:3000">http://localhost:3000</a>

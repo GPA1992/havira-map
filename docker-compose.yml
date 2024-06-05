@@ -10,9 +10,4 @@ services:
     restart: always
     ports:
       - 3000:3000
-    networks:
-      - havira_map_network
 
-networks:
-  havira_map_network:
-    external: true
