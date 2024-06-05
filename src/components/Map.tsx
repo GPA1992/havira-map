@@ -4,18 +4,38 @@
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'
 import 'leaflet-defaulticon-compatibility'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  ZoomControl,
+} from 'react-leaflet'
 import { RootState } from '@/lib/store'
 import { useSelector } from 'react-redux'
+import { useEffect, useRef } from 'react'
+import { Map } from 'leaflet'
 
-export default function Map() {
+export default function CustomMap() {
   const { userData } = useSelector((state: RootState) => state.users)
+  const { zoom, lat, lng } = useSelector((state: RootState) => state.squareZoom)
+  const mapRef = useRef<Map | null>(null)
+
+  useEffect(() => {
+    if (mapRef.current) {
+      mapRef.current.flyTo([lat, lng], zoom)
+    }
+  }, [lat, lng, zoom])
+
   return (
     <MapContainer
-      center={[40.8054, -74.0241]}
-      zoom={3}
-      scrollWheelZoom={false}
+      center={[lat, lng]}
+      dragging={true}
+      zoom={zoom}
+      scrollWheelZoom={true}
+      zoomControl={false}
       className="absolute z-0 h-full w-full"
+      ref={mapRef}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -35,14 +55,7 @@ export default function Map() {
           </Popup>
         </Marker>
       ))}
-      {/* <Marker
-        eventHandlers={eventHandlers}
-        position={[40.8054, -74.0241]}
-        draggable={true}
-        ref={markerRef}
-      >
-        <Popup>Hey ! you found me</Popup>
-      </Marker> */}
+      <ZoomControl position="bottomright" />
     </MapContainer>
   )
 }
