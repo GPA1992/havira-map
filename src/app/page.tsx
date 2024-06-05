@@ -9,10 +9,15 @@ import PopoverList from '@/components/popover-list/popover-list'
 import { ModeToggle } from '@/components/theme-switcher/theme-switcher'
 import Image from 'next/image'
 import { InputCombobox } from '@/components/input-combobox/input-combobox'
+import { Skeleton } from '@/components/ui/skeleton'
 
 const LazyMap = dynamic(() => import('@/components/Map'), {
   ssr: false,
-  loading: () => <p>Loading...</p>,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center">
+      <Skeleton className="h-[20px] w-[100px] rounded-full" />
+    </div>
+  ),
 })
 
 export default function Home() {
@@ -26,7 +31,11 @@ export default function Home() {
     return <div>Error: {error.message}</div>
   }
   if (!isSuccess) {
-    return <div>Loading...</div>
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <Skeleton className="h-[20px] w-[100px] rounded-full" />
+      </div>
+    )
   }
 
   dispatch(setUserData(data))
