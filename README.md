@@ -21,8 +21,8 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - **Coleta de Dados**: A aplicação se conecta a uma API externa para coletar dados dos usuários.
 - **Gerenciar Usuários**: É possivel adicionar e excluir usuarios.
-- **Listagem de Usuários**: Exibição dos usuários em uma tabela organizada e detalhada.
-- **Mapa Interativo**: Visualização das localizações dos usuários em um mapa interativo, utilizando a biblioteca Leaflet para uma experiência de usuário rica e intuitiva.
+- **Listagem de Usuários**: Exibição dos usuários em uma tabela com filtros e opções para o gerenciamento dos usuários.
+- **Mapa Interativo**: Visualização das localizações dos usuários em um mapa interativo, é possivel clicar para obter informações dos usuários.
 
 ## Instalação e Execução
 
