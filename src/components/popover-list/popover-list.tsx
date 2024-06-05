@@ -15,7 +15,7 @@ export default function PopoverList() {
       <PopoverTrigger asChild className="bg-none">
         <Button variant="outline">
           <LayersIcon className="mr-2 h-4 w-4" />
-          Gerenciar Usuários
+          Gerenciar usuários
         </Button>
       </PopoverTrigger>
       <PopoverContent className="absolute z-50 w-[35vw] min-w-fit">

@@ -58,7 +58,7 @@ export function InputCombobox() {
           ) : (
             <>
               <MagnifyingGlassIcon className="mr-2 h-5 w-5" />{' '}
-              <span>Buscar um Usuário...</span>
+              <span>Buscar usuário</span>
             </>
           )}
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />

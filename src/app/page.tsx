@@ -45,7 +45,7 @@ export default function Home() {
 
           <div>
             <h1 className="text-2xl font-bold">Hávira Map</h1>
-            <span>Sistema de Localização de Usuários</span>
+            <span>Sistema de localização de usuários</span>
           </div>
         </div>
         <div className="ml-5 flex h-16 items-start">
