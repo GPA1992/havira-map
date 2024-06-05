@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  next-app:
+    container_name: havira-map-next
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - havira_map_network
+
+networks:
+  havira_map_network:
+    external: true
