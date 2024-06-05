@@ -4,7 +4,7 @@
 
 O **Hávira Web Map** é uma aplicação web interativa que coleta informações de usuários a partir de uma API e exibe esses dados de maneira visual e intuitiva. Com essa aplicação, é possível listar os usuários em uma tabela detalhada e visualizar suas localizações geográficas em um mapa interativo utilizando a biblioteca Leaflet.
 
-### <a href="https://havira-map-zeip.vercel.app/">Frontend Live:  https://havira-map-zeip.vercel.app/</a>
+### <a href="https://havira-map-zeip.vercel.app/" target="_blank">Aplicação Online:  https://havira-map-zeip.vercel.app/</a>
 
 ## Tecnologias Utilizadas
 
