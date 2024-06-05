@@ -55,7 +55,7 @@ export default function CustomMap() {
             </div>
 
             <div>
-              <span className="font-bold">Endereço: </span>
+              <span className="font-bold">Cidade: </span>
               <span className="">{user.city}</span>
             </div>
           </Popup>
