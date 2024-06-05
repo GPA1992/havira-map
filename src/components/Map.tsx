@@ -4,48 +4,45 @@
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'
 import 'leaflet-defaulticon-compatibility'
-
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import { useEffect, useMemo, useRef } from 'react'
+import { RootState } from '@/lib/store'
+import { useSelector } from 'react-redux'
 
 export default function Map() {
-  const markerRef = useRef(null)
-  const eventHandlers = useMemo(
-    () => ({
-      dragend() {
-        const marker = markerRef.current
-        if (marker != null) {
-          // setPosition(marker.getLatLng())
-          console.log(marker.getLatLng())
-        }
-      },
-    }),
-    [],
-  )
-  useEffect(() => {
-    console.log(markerRef.current)
-  }, [markerRef.current])
-  const position = [51.505, -0.09]
-
+  const { userData } = useSelector((state: RootState) => state.users)
   return (
     <MapContainer
       center={[40.8054, -74.0241]}
-      zoom={4}
+      zoom={3}
       scrollWheelZoom={false}
-      style={{ height: '400px', width: '100%' }}
+      className="absolute z-0 h-full w-full"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker
+
+      {userData?.map((user) => (
+        <Marker
+          key={user.id}
+          position={[
+            parseFloat(user.address.geo.lat),
+            parseFloat(user.address.geo.lng),
+          ]}
+        >
+          <Popup>
+            {user.name} <br /> {user.email}
+          </Popup>
+        </Marker>
+      ))}
+      {/* <Marker
         eventHandlers={eventHandlers}
         position={[40.8054, -74.0241]}
         draggable={true}
         ref={markerRef}
       >
         <Popup>Hey ! you found me</Popup>
-      </Marker>
+      </Marker> */}
     </MapContainer>
   )
 }
