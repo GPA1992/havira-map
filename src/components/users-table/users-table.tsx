@@ -78,13 +78,14 @@ export function UsersTable<TData, TValue>({
 
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline" size="icon">
-                <PlusIcon className="h-4 w-4" />
+              <Button variant="outline">
+                <PlusIcon className="mr-2 h-4 w-4" />
+                Adicionar Usuário
               </Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Adicionar Novo Usuario</DialogTitle>
+                <DialogTitle>Adicionar Novo Usuário</DialogTitle>
               </DialogHeader>
               <UserForm />
             </DialogContent>

@@ -61,7 +61,7 @@ export default function CustomMap() {
           </Popup>
         </Marker>
       ))}
-      <ZoomControl />
+      <ZoomControl position="bottomleft" />
     </MapContainer>
   )
 }

@@ -81,7 +81,7 @@ export default function UserForm() {
     dispatch(addUserData(newUser))
     toast({
       title: 'Sucesso!',
-      description: 'Usuario adicionado com sucesso',
+      description: 'Usuário adicionado com sucesso',
       action: <ToastAction altText="Fechar toaster">Fechar</ToastAction>,
     })
 
@@ -163,7 +163,7 @@ export default function UserForm() {
         />
 
         {coordinateType === 'geo' && (
-          <div>
+          <>
             <FormField
               control={form.control}
               name="lat"
@@ -191,11 +191,11 @@ export default function UserForm() {
                 </FormItem>
               )}
             />
-          </div>
+          </>
         )}
 
         {coordinateType === 'utm' && (
-          <div>
+          <>
             <FormField
               control={form.control}
               name="lat"
@@ -251,7 +251,7 @@ export default function UserForm() {
                 </FormItem>
               )}
             />
-          </div>
+          </>
         )}
 
         <Button type="submit">Criar</Button>

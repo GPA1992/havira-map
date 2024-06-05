@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux'
 import { setUserData } from '@/lib/features/users/userSlice'
 import PopoverList from '@/components/popover-list/popover-list'
 import { ModeToggle } from '@/components/theme-switcher/theme-switcher'
+import Image from 'next/image'
+import { InputCombobox } from '@/components/input-combobox/input-combobox'
 
 const LazyMap = dynamic(() => import('@/components/Map'), {
   ssr: false,
@@ -31,9 +33,24 @@ export default function Home() {
 
   return (
     <div className="relative h-full w-full">
-      <div className="absolute left-2 top-20 z-10 flex flex-col gap-3 rounded-md bg-gray-600 bg-opacity-25 p-3">
-        <PopoverList />
+      <div className="absolute left-2 top-5 z-10 flex h-fit flex-row items-end gap-3 rounded-md bg-background bg-opacity-25 p-2">
+        <Image
+          className="rounded-full"
+          src="/havira_logo.jpeg"
+          width={70}
+          height={70}
+          alt="Picture of the author"
+        />
+
+        <div>
+          <h1 className="text-2xl font-bold">Hávira Map</h1>
+          <span>Sistema de Localização de Usuários</span>
+        </div>
         <ModeToggle />
+      </div>
+      <div className="absolute left-2 top-28 z-10 flex h-fit flex-col items-start gap-2">
+        <PopoverList />
+        <InputCombobox />
       </div>
       <LazyMap />
     </div>
