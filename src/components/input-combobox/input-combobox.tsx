@@ -34,12 +34,11 @@ export function InputCombobox() {
   const [user, setUser] = useState<IUserPartial | null>()
 
   useEffect(() => {
-    console.log('user', user)
     if (!user) return
     dispatch(setLat(user.lat))
     dispatch(setLng(user.lng))
     dispatch(setZoom(14))
-  }, [value])
+  }, [dispatch, user, value])
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
