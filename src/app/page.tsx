@@ -33,20 +33,22 @@ export default function Home() {
 
   return (
     <div className="relative h-full w-full">
-      <div className="absolute left-2 top-5 z-10 flex h-fit flex-row items-end gap-3 rounded-md bg-background bg-opacity-25 p-2">
-        <Image
-          className="rounded-full"
-          src="/havira_logo.jpeg"
-          width={70}
-          height={70}
-          alt="Picture of the author"
-        />
+      <div className="absolute left-2 top-5 z-10 flex h-fit w-fit flex-row items-end justify-between gap-3 rounded-md bg-background bg-opacity-25 p-3">
+        <div className="flex flex-row items-center gap-3">
+          <Image
+            className="rounded-full"
+            src="/havira_logo.jpeg"
+            width={70}
+            height={70}
+            alt="Picture of the author"
+          />
 
-        <div>
-          <h1 className="text-2xl font-bold">Hávira Map</h1>
-          <span>Sistema de Localização de Usuários</span>
+          <div>
+            <h1 className="text-2xl font-bold">Hávira Map</h1>
+            <span>Sistema de Localização de Usuários</span>
+          </div>
         </div>
-        <div className="flex h-16 items-start">
+        <div className="ml-5 flex h-16 items-start">
           <ModeToggle />
         </div>
       </div>
