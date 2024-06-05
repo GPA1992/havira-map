@@ -37,8 +37,16 @@ const userSlice = createSlice({
         state.userData = [action.payload]
       }
     },
+    deleteUserData: (state, action: PayloadAction<number>) => {
+      if (state.userData) {
+        const index = state.userData.findIndex(
+          (user) => user.id === action.payload,
+        )
+        state.userData.splice(index, 1)
+      }
+    },
   },
 })
 
-export const { setUserData, addUserData } = userSlice.actions
+export const { setUserData, addUserData, deleteUserData } = userSlice.actions
 export default userSlice.reducer

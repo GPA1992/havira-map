@@ -22,7 +22,7 @@ export default function UserZoom({ lat, lng }: UserZoomProps) {
   }
   return (
     <div>
-      <Button onClick={handleZoomClick} variant="outline" size="icon">
+      <Button onClick={handleZoomClick} size="icon">
         <RocketIcon className="h-4 w-4" />
       </Button>
     </div>

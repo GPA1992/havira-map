@@ -1,5 +1,9 @@
 'use client'
-import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import {
+  CaretSortIcon,
+  CheckIcon,
+  MagnifyingGlassIcon,
+} from '@radix-ui/react-icons'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -47,11 +51,16 @@ export function InputCombobox() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-fit justify-between"
         >
-          {value
-            ? userData?.find((user) => user.name === value)?.name
-            : 'Seleciona um Usuário...'}
+          {value ? (
+            userData?.find((user) => user.name === value)?.name
+          ) : (
+            <>
+              <MagnifyingGlassIcon className="mr-2 h-5 w-5" />{' '}
+              <span>Buscar um Usuário...</span>
+            </>
+          )}
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -59,7 +68,7 @@ export function InputCombobox() {
         <Command>
           <CommandInput placeholder="Usuários..." className="h-9" />
           <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandEmpty>Nenhum Usuário Encontrado.</CommandEmpty>
             <CommandGroup>
               {userData?.map((user) => (
                 <CommandItem
