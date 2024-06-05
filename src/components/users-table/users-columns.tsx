@@ -19,7 +19,7 @@ export const usersColumns: ColumnDef<IUserPartial>[] = [
   },
   {
     accessorKey: 'id',
-    header: 'Navegar',
+    header: 'Voar',
     cell: (data) => {
       const lat = data.cell.row.original.lat
       const lng = data.cell.row.original.lng

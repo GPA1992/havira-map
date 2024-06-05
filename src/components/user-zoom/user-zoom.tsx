@@ -5,7 +5,7 @@ import {
   setZoom,
 } from '@/lib/features/squareZoom/squareZoomSlice'
 import { useDispatch } from 'react-redux'
-import { SewingPinFilledIcon } from '@radix-ui/react-icons'
+import { RocketIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
 
 interface UserZoomProps {
@@ -23,7 +23,7 @@ export default function UserZoom({ lat, lng }: UserZoomProps) {
   return (
     <div>
       <Button onClick={handleZoomClick} variant="outline" size="icon">
-        <SewingPinFilledIcon className="h-4 w-4" />
+        <RocketIcon className="h-4 w-4" />
       </Button>
     </div>
   )
