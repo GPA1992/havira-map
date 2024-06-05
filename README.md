@@ -50,7 +50,7 @@ Para executar esta aplicação localmente, siga os passos abaixo:
     ```
     ou
     ```bash
-    yarn run dev
+    yarn dev
     ```
    ### acesse: 
    Para conferir a execução
