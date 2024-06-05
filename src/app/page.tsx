@@ -46,9 +46,11 @@ export default function Home() {
           <h1 className="text-2xl font-bold">Hávira Map</h1>
           <span>Sistema de Localização de Usuários</span>
         </div>
-        <ModeToggle />
+        <div className="flex h-16 items-start">
+          <ModeToggle />
+        </div>
       </div>
-      <div className="absolute left-2 top-28 z-10 flex h-fit flex-col items-start gap-2">
+      <div className="absolute left-2 top-32 z-10 flex h-fit flex-col items-start gap-2">
         <PopoverList />
         <InputCombobox />
       </div>
