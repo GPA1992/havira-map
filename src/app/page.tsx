@@ -4,6 +4,7 @@ import { IUser } from '@/types/user'
 import { useQuery } from '@tanstack/react-query'
 import dynamic from 'next/dynamic'
 import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import { setUserData } from '@/lib/features/users/userSlice'
 import PopoverList from '@/components/popover-list/popover-list'
 import { ModeToggle } from '@/components/theme-switcher/theme-switcher'
@@ -27,6 +28,12 @@ export default function Home() {
     queryFn: () => getUsers(),
   })
 
+  useEffect(() => {
+    if (isSuccess && data) {
+      dispatch(setUserData(data))
+    }
+  }, [isSuccess, data, dispatch])
+
   if (error) {
     return <div>Error: {error.message}</div>
   }
@@ -38,7 +45,7 @@ export default function Home() {
     )
   }
 
-  dispatch(setUserData(data))
+
 
   return (
     <div className="relative h-full w-full">
