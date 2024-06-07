@@ -33,7 +33,6 @@ export default function Home() {
       dispatch(setUserData(data))
     }
   }, [isSuccess, data, dispatch])
-  
 
   if (error) {
     return <div>Error: {error.message}</div>
